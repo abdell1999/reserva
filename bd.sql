@@ -1,0 +1,40 @@
+USE acl;
+CREATE TABLE resources (
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(45) NOT NULL,
+  description VARCHAR(1000) NOT NULL,
+  location VARCHAR(500) NOT NULL,
+  image VARCHAR(500) UNIQUE NOT NULL
+);
+
+
+CREATE TABLE users (
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(45) NOT NULL,
+  password VARCHAR(45) NOT NULL,
+  realname VARCHAR(90) NOT NULL
+);
+
+
+CREATE TABLE timeslots (
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  dayOfWeek VARCHAR(45) NOT NULL,
+  startTime DATETIME NOT NULL,
+  endTime DATETIME NOT NULL
+);
+
+
+
+
+
+
+CREATE TABLE reservations (
+  id_resource INT UNSIGNED,
+  id_user INT UNSIGNED,
+  id_timeslot INT UNSIGNED,
+  date DATETIME,
+  remarks VARCHAR(900),
+  FOREIGN KEY(id_resource) REFERENCES resources(id),
+  FOREIGN KEY(id_user) REFERENCES users(id),
+  FOREIGN KEY(id_timeslot) REFERENCES timeslots(id)
+);
