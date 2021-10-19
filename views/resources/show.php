@@ -11,9 +11,11 @@ if(isset($data["message"])){
 
 $controller = "resources";
 $eliminar = "delete";
+$crear = "create";
+$editar = "edit";
 
 
-
+echo "<a class='btn btn-primary btn-nueva' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar recurso </a>";
 echo "<table class='table table-bordered grocery-crud-table table-hover'>
             <thead>
               <tr>
@@ -48,7 +50,7 @@ foreach ($resources as $resource) {
       echo "<img class='card-img-top col-md-4 d-none d-md-block ml-6' src='$imagen' alt='Cartel'>
       </td>
       <td>
-      <a class='btn btn-warning' href='#'>Editar</a>
+      <a class='btn btn-warning' href='index.php?controller=$controller&action=$editar&id=$id'>Editar</a>
       <a class='btn btn-danger' href='index.php?controller=$controller&action=$eliminar&id=$id'>Eliminar</a> 
       
       </td>

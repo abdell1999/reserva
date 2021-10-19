@@ -16,9 +16,16 @@ class Resources
 
   
     
-    public static function get()
+    public function get()
     {
        $result = DB::dataQuery("SELECT * FROM resources");
+       return $result;
+    }
+
+
+    public function getElement($id)
+    {
+       $result = DB::dataQuery("SELECT * FROM resources WHERE id=$id");
        return $result;
     }
 
@@ -38,12 +45,7 @@ class Resources
     public function create($idResources,$name,$description,$location,$reservations){
             $result = DB::dataManipulation("INSERT INTO resources(id,name,description,location,reservations) VALUES ('$idResources','$name', '$description', '$location', '$reservations')");
 
-            if ($result->affected_rows == 0) {
-                echo "error no fue insertado";
-            } else {
-                echo "insertado con éxito";
-            }
-
+           
     }
     public function update($idResources,$name,$description,$location,$reservations){
         $result = DB::dataManipulation("UPDATE resources SET name='$name', description='$description', location='$location', reservations='$reservations' WHERE id='$idResources'");

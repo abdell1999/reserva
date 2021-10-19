@@ -42,6 +42,21 @@ class ResourcesController {
 
 
 
+    public function create(){
+        $this->view->show("resources/create");
+    }
+
+
+    public function store(){
+        echo "ESTO FUNCIONA TIO";
+    }
+
+
+    public function edit($id){
+        $data['element'] = $this->resources->getElement($id);
+        $this->view->show("resources/edit", $data);
+    }
+
 
 
 }
