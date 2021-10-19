@@ -14,14 +14,7 @@ class DB {
     private static $connection; // Aquí guardaremos la conexión con la base de datos
  
 
-    /**
-     * Crea la conexión con la base de datos
-     * @param $server URL del servidor de la base de datos
-     * @param $username Nombre de usuario en ese servidor
-     * @param $pass Contraseña
-     * @param $dbname Nombre de la base de datos
-     * @return boolean true si la conexión se realiza con normalidad y false en caso de error
-     */
+    
     public static function createConnection() {
         DB::$connection = new mysqli(Config::$server, Config::$user, Config::$pass, Config::$dbname);
         if (DB::$connection->connect_errno) return false;

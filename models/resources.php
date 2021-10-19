@@ -21,10 +21,20 @@ class Resources
        $result = DB::dataQuery("SELECT * FROM resources");
        return $result;
     }
+
+
+
+    
     public function delete($id){
-        $result = DB::dataManipulation("DELETE FROM resources WHERE id = '$idResources'"); 
+        $result = DB::dataManipulation("DELETE FROM resources WHERE id = '$id'"); 
         return $result;
     }
+
+
+
+
+
+
     public function create($idResources,$name,$description,$location,$reservations){
             $result = DB::dataManipulation("INSERT INTO resources(id,name,description,location,reservations) VALUES ('$idResources','$name', '$description', '$location', '$reservations')");
 
