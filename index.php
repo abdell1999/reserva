@@ -1,6 +1,6 @@
 <?php
 
-include("resourcesController.php");
+include("controllers/resourcesController.php");
 
 
 //$controller -> CONTROLADOR
