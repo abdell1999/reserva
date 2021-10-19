@@ -1,6 +1,8 @@
     </div>
     <div class='footer'>
-        Este es el pie
-    </div
+    <div class='container'>
+    &copy; Abdellah Bukad-duh Rappani 2021-????
+    </div>
+</div>
 </body>
 </html>

@@ -12,17 +12,37 @@
 
 <body>
     <div class='container'>
-        <p>Esto es la cabecera</p>
+        
 
 
-    <nav>
-        <ul>
-            <li>Inicio</li>
-            <li>COSAS</li>
-            <li>COSAS</li>
-            <li>COSAS</li>
-        </ul>
-    </nav>
+    <nav class="navbar navbar-expand-sm navbar-light">
+  <ul class="navbar-nav">
+    <li>
+      <a class="nav-link" href="index.php">Inicio</a>
+    </li>
+    <li>
+      <a class="nav-link" href="#">En proceso</a>
+    </li>
+    <li>
+      <a class="nav-link" href="#">En proceso</a>
+    </li>
+    <li>
+      <a class="nav-link" href="#">En procesos</a>
+    </li>
+   
+  </ul>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
 
