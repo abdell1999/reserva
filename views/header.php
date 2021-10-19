@@ -11,8 +11,20 @@
 </head>
 
 <body>
-    <p>Esto es la cabecera</p>
+    <div class='container'>
+        <p>Esto es la cabecera</p>
 
+
+    <nav>
+        <ul>
+            <li>Inicio</li>
+            <li>COSAS</li>
+            <li>COSAS</li>
+            <li>COSAS</li>
+        </ul>
+    </nav>
+
+    </div>
 
 
 

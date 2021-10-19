@@ -3,6 +3,15 @@
 $resources = $data["list"];
 
 
+if(isset($data["message"])){
+
+    echo $data["message"];
+
+}
+
+$controller = "resources";
+$eliminar = "delete";
+
 
 
 echo "<table class='table table-bordered grocery-crud-table table-hover'>
@@ -20,6 +29,9 @@ echo "<table class='table table-bordered grocery-crud-table table-hover'>
 
 //$resource['name']
 foreach ($resources as $resource) {
+
+    $id = $resource["id"];
+
     echo "<tbody>
         <tr>
       <td>";
@@ -37,7 +49,7 @@ foreach ($resources as $resource) {
       </td>
       <td>
       <a class='btn btn-warning' href='#'>Editar</a>
-      <a class='btn btn-danger' href='#'>Eliminar</a> 
+      <a class='btn btn-danger' href='index.php?controller=$controller&action=$eliminar&id=$id'>Eliminar</a> 
       
       </td>
 

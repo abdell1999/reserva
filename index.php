@@ -29,8 +29,13 @@ if (!isset($_REQUEST['controller']) && !isset($_REQUEST['action'])) {
     //$controller = new ResourcesController();
     //$controller->show();
 
+    if(isset($_REQUEST['id'])){
+        $id = $_REQUEST['id'];
+    }else{
+        $id = null;
+    }
 
     
-    $controller->$action();
+    $controller->$action($id);
     
 

@@ -21,7 +21,24 @@ class ResourcesController {
         $data['list'] = $this->resources->get();
         $this->view->show("resources/show", $data);
 
-    }    
+    }
+    
+    
+
+    public function delete($id){
+        $result = $this->resources->delete($id);
+
+        if($result>0){
+            $data["message"] = "Eliminado correctamente";
+        }else{
+            $data["message"] = "Ha ocurrido un error al eliminar";
+        }
+
+
+        //Preguntarle al profesor, ya que esto es un poco espagueti
+        $data['list'] = $this->resources->get();
+        $this->view->show("resources/show", $data);
+    }
 
 
 
