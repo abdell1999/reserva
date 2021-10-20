@@ -48,6 +48,6 @@ echo "<form role='form' enctype='multipart/form-data' method='POST' action='inde
 
 
 
-<button type='submit' class='btn btn-secondary'>Editar</button>
+<button type='submit' class='btn btn-warning'>Editar</button>
 <a href='index.php' class='btn btn-dark'>Volver</a>
 </form></div>";

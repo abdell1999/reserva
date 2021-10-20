@@ -42,10 +42,14 @@ class ResourcesController {
         //return redirect()->action([ArticuloController::class, 'index']);
 
         $this->show($data);
+
+
+        //Coger el server desde el config
+        //header ("Location: index.php");
     }
 
 
-
+    //Los request hacerlos en el modelo y pasarlos por la clase security que es otro modelo.
     public function create(){
         $this->view->show("resources/create");
     }

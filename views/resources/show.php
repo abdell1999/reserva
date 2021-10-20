@@ -23,8 +23,9 @@ $crear = "create";
 $editar = "edit";
 
 
-echo "<a class='btn btn-primary btn-nueva' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar recurso </a>";
-echo "<table class='table table-bordered grocery-crud-table table-hover'>
+echo "<a class='btn btn-success' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar recurso </a>";
+
+echo "<table class='table table-bordered grocery-crud-table table-hover' id='tablaRecursos'>
             <thead>
               <tr>
                 <th>Nombre</th>
@@ -55,7 +56,7 @@ foreach ($resources as $resource) {
 
         $imagen = $resource["image"];
 
-      echo "<img class='card-img-top col-md-4 d-none d-md-block ml-6' src='$imagen' alt='Cartel'>
+      echo "<img class='card-img-top col-md-4 d-none d-md-block ml-6' src='$imagen' alt='Imagen'>
       </td>
       <td>
       <a class='btn btn-warning' href='index.php?controller=$controller&action=$editar&id=$id'>Editar</a>
