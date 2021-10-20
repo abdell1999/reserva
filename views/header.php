@@ -27,7 +27,7 @@
       <a class="nav-link" href="#">En proceso</a>
     </li>
     <li>
-      <a class="nav-link" href="#">En procesos</a>
+      <a class="nav-link" href="#">En proceso</a>
     </li>
    
   </ul>

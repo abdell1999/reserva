@@ -4,11 +4,19 @@ $resources = $data["list"];
 
 
 if(isset($data["message"])){
-
+    $mensaje = $data["message"];
     echo $data["message"];
+    echo "<br>";
+
+
+
+
 
 }
 
+
+
+//Esto es por si decido cambiar el nombre de los métodos del controlador o el controlador en sí
 $controller = "resources";
 $eliminar = "delete";
 $crear = "create";

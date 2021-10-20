@@ -42,13 +42,13 @@ class Resources
 
 
 
-    public function create($idResources,$name,$description,$location,$reservations){
-            $result = DB::dataManipulation("INSERT INTO resources(id,name,description,location,reservations) VALUES ('$idResources','$name', '$description', '$location', '$reservations')");
-
+    public function store($name,$description,$location,$image){
+            $result = DB::dataManipulation("INSERT INTO resources(name,description,location,image) VALUES ('$name', '$description', '$location', '$image')");
+            return $result;
            
     }
-    public function update($idResources,$name,$description,$location,$reservations){
-        $result = DB::dataManipulation("UPDATE resources SET name='$name', description='$description', location='$location', reservations='$reservations' WHERE id='$idResources'");
+    public function update($id,$name,$description,$location,$image){
+        $result = DB::dataManipulation("UPDATE resources SET name='$name', description='$description', location='$location', image='$image' WHERE id='$id'");
     }
 
     }
