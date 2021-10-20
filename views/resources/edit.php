@@ -36,7 +36,7 @@ echo "<form role='form' enctype='multipart/form-data' method='POST' action='inde
 
 <div class='form-group'>
   <label for='image'>Imagen:</label>
-  <input type='file' class='form-control' name='image' required>
+  <input type='file' class='form-control' name='image'>
 
   <br>
   <br>
@@ -48,6 +48,6 @@ echo "<form role='form' enctype='multipart/form-data' method='POST' action='inde
 
 
 
-<button type='submit' class='btn btn-success'>Agregar</button>
+<button type='submit' class='btn btn-secondary'>Editar</button>
 <a href='index.php' class='btn btn-dark'>Volver</a>
 </form></div>";

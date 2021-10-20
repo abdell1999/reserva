@@ -77,7 +77,7 @@ class ResourcesController {
             
                     echo "Ha ocurrido un error, trate de nuevo!";
                 //echo "ADIOS";
-    }
+                }
 
 
 
@@ -105,8 +105,46 @@ class ResourcesController {
     }
 
 
-    //public function update($id){
-    //}
+    public function update($id){
+
+        if( isset($_REQUEST["id"]) && isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["location"])){
+            $id = $_REQUEST["id"];
+            $name = $_REQUEST["name"];
+            $description = $_REQUEST["description"];
+            $location = $_REQUEST["location"];
+            $image = null;
+
+            if($_FILES["image"]){
+                $target_path = "C:/xampp/htdocs/dwes/reserva/img/resources/";
+                $basename = basename( rand(1,99999) . $_FILES['image']['name']);
+                $target_path = $target_path . $basename; 
+                if(move_uploaded_file($_FILES['image']['tmp_name'], $target_path)) {
+                    //echo "OKEY CRACK";
+
+                    $image = "http://localhost/dwes/reserva/img/resources/$basename";
+
+                    //echo $image;
+                    //echo "<a href='$image'> IMAGEN </a>";
+                } else{
+            
+                    //echo "Ha ocurrido un error, trate de nuevo!"; //No existe la imagen
+                //echo "ADIOS";
+                }
+            }
+
+
+
+
+
+
+            $this->resources->update($id,$name,$description,$location,$image);
+            $this->show();
+    }
+
+
+
+
+    }
 
 
 

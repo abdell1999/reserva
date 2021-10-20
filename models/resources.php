@@ -48,7 +48,12 @@ class Resources
            
     }
     public function update($id,$name,$description,$location,$image){
-        $result = DB::dataManipulation("UPDATE resources SET name='$name', description='$description', location='$location', image='$image' WHERE id='$id'");
+        if($image){
+            $result = DB::dataManipulation("UPDATE resources SET name='$name', description='$description', location='$location', image='$image' WHERE id='$id'");
+        }else{
+            $result = DB::dataManipulation("UPDATE resources SET name='$name', description='$description', location='$location' WHERE id='$id'");
+        }
+        return $result;
     }
 
     }
