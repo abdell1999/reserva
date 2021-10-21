@@ -50,6 +50,7 @@ class ResourcesController {
 
 
     //Los request hacerlos en el modelo y pasarlos por la clase security que es otro modelo.
+    //Todo lo que implique crear cosas en el serveer hacerlo en el modelo
     public function create(){
         $this->view->show("resources/create");
     }
