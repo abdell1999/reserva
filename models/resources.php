@@ -1,6 +1,7 @@
 <?php
 
 include_once("db.php");
+include_once("security.php");
 
 class Resources
 {
@@ -42,8 +43,61 @@ class Resources
 
 
 
-    public function store($name,$description,$location,$image){
-            $result = DB::dataManipulation("INSERT INTO resources(name,description,location,image) VALUES ('$name', '$description', '$location', '$image')");
+    public function store(){
+
+
+        if(isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["location"]) && isset($_FILES["image"])){
+            $name = $_REQUEST["name"];
+            $description = $_REQUEST["description"];
+            $location = $_REQUEST["location"];
+
+
+
+
+            //$image = $_REQUEST["image"];
+
+            $target_path = "C:/xampp/htdocs/dwes/reserva/img/resources/";
+            $basename = basename( rand(1,99999) . $_FILES['image']['name']);
+            $target_path = $target_path . $basename; 
+                if(move_uploaded_file($_FILES['image']['tmp_name'], $target_path)) {
+                    //echo "OKEY CRACK";
+
+                    $image = "http://localhost/dwes/reserva/img/resources/$basename";
+
+                    //echo $image;
+                    //echo "<a href='$image'> IMAGEN </a>";
+                } else{
+            
+                    echo "Ha ocurrido un error, trate de nuevo!";
+                //echo "ADIOS";
+                }
+
+
+
+
+
+
+                $result = DB::dataManipulation("INSERT INTO resources(name,description,location,image) VALUES ('$name', '$description', '$location', '$image')");
+            
+
+
+
+
+
+
+        }else{
+            $result = null;
+        }
+
+
+
+
+
+
+
+
+
+            
             return $result;
            
     }
