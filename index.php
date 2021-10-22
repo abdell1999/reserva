@@ -5,9 +5,6 @@ include("controllers/resourcesController.php");
 
 //$controller -> CONTROLADOR
 //$action -> MÉTODO
-
-
-
 if (!isset($_REQUEST['controller']) && !isset($_REQUEST['action'])) {
     
         $controller = "resources";
