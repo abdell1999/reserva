@@ -1,0 +1,1 @@
+//ENUM para day of the week

@@ -2,7 +2,6 @@
 
 include("controllers/resourcesController.php");
 
-
 //$controller -> CONTROLADOR
 //$action -> MÉTODO
 if (!isset($_REQUEST['controller']) && !isset($_REQUEST['action'])) {
@@ -17,10 +16,7 @@ if (!isset($_REQUEST['controller']) && !isset($_REQUEST['action'])) {
     }
     
 
-
-
     $nombreClase = ucfirst($controller)."Controller";
-
     $controller = new $nombreClase;
     
     //$controller = new ResourcesController();
@@ -31,7 +27,6 @@ if (!isset($_REQUEST['controller']) && !isset($_REQUEST['action'])) {
     }else{
         $id = null;
     }
-
     
     $controller->$action($id);
     

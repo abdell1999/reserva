@@ -44,8 +44,6 @@ class Resources
 
 
     public function store(){
-
-
         if(isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["location"]) && isset($_FILES["image"])){
             $name = $_REQUEST["name"];
             $description = $_REQUEST["description"];
@@ -72,41 +70,15 @@ class Resources
                 //echo "ADIOS";
                 }
 
-
-
-
-
-
                 $result = DB::dataManipulation("INSERT INTO resources(name,description,location,image) VALUES ('$name', '$description', '$location', '$image')");
             
-
-
-
-
-
-
         }else{
             $result = null;
         }
-
-
-
-
-
-
-
-
-
             
             return $result;
            
     }
-
-
-
-
-
-
 
 
 
