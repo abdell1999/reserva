@@ -1,6 +1,7 @@
 <?php
 
 include("controllers/resourcesController.php");
+include("controllers/usersController.php");
 
 //$controller -> CONTROLADOR
 //$action -> MÉTODO

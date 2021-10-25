@@ -1,6 +1,6 @@
 <?php
 
-include("db.php");
+include_once("db.php");
 
 class User
 {
@@ -29,39 +29,7 @@ class User
             return null;
     }
 
-    /**
-     * Busca en la base de datos la lista de roles de un usuario
-     * @param integer $idUser El id del usuario
-     * @return array $resultArray Un array con todos los roles del usuario, o null si el usuario no existe o no tiene roles asignados
-     */
-    public function getUserRoles($idUser)
-    {
-        $resultArray = array();
-        $result = DB::dataQuery("SELECT roles.* FROM roles
-                                            INNER JOIN `roles-users` ON roles.id = `roles-users`.idRol
-                                            WHERE `roles-users`.idUser = '$idUser'");
-        if (count($result) > 0)
-              return $result;
-        else
-              return null;
-    }
 
-    /**
-     * Busca en la base de datos los permisos asociados a un rol
-     * @param integer $idRol El id del rol
-     * @return array $resultArray Un array con la lista de permisos asociados al rol, o null si el rol no existe o no tiene permisos asociados
-     */
-    public function getUserPermissions($idRol)
-    {
-        $resultArray = array();
-        $result = DB::dataQuery("SELECT permissions.* FROM permissions 
-                                            INNER JOIN `permissions-roles` ON permissions.id = `permissions-roles`.idPermission 
-                                            WHERE `permissions-roles`.idRol = '$idRol'");
-        if (count($result) > 0)
-            return $result;
-        else
-            return null;
 
-    }
 }
 ?>
