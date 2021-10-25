@@ -1,6 +1,6 @@
 <?php
 
-echo "<div class='row justify-content-center'><div class='col-md-8'><div class='card'>
+echo "<main class='py-4'><div class='row justify-content-center'><div class='col-md-8'><div class='card'>
 <div class='card-header'>Acceder</div><div class='card-body'>
 <form method='POST' action='por poner algo aqui'>
     <div class='form-group row'>
@@ -45,4 +45,4 @@ echo "<div class='row justify-content-center'><div class='col-md-8'><div class='
                                         </div>
     </div>
 </form>
-</div></div></div></div></div>";
+</div></div></div></div></div></main>";

@@ -26,4 +26,17 @@ class UsersController {
     }
 
 
+    public function register(){
+        
+            $result =  $this->users->register();
+             if($result){
+                 echo "OK";
+             }else{
+                 echo "ERROR";
+             }
+             
+         
+    }
+
+
 }

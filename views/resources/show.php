@@ -23,7 +23,7 @@ $crear = "create";
 $editar = "edit";
 
 
-echo "<a class='btn btn-success' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar recurso </a>";
+echo "<main class='py-4'><a class='btn btn-success' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar recurso </a>";
 
 echo "<table class='table table-bordered grocery-crud-table table-hover' id='tablaRecursos'>
             <thead>
@@ -69,4 +69,4 @@ foreach ($resources as $resource) {
   </tbody>";
   }
   
-echo "</table></div>";
+echo "</table></div></main>";
