@@ -21,4 +21,9 @@ class UsersController {
     }
 
 
+    public function showRegister(){
+        $this->view->show("users/register");
+    }
+
+
 }
