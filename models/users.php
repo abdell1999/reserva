@@ -74,6 +74,18 @@ class User
 
 
 
+    public function userLogged(){
+        $id = Security::getUserId();
+
+        $result = DB::dataQuery("SELECT * FROM users WHERE id = '$id'");
+                
+        return $result;
+        
+
+    }
+
+
+
 
 
 

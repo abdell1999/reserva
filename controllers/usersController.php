@@ -28,7 +28,7 @@ class UsersController {
 
         if($result){
 
-            echo $result['id'];
+            header("Location: index.php");
         }
 
     }
@@ -58,6 +58,20 @@ class UsersController {
              }
              
          
+    }
+
+
+    //Obtener datos del usuario logueado actualmente
+    public function userLogged(){
+        $result =  $this->users->userLogged();
+        return $result;
+    }
+
+
+    public function show(){
+
+        $data['userLogged'] = $this->userLogged();
+        $this->view->show("users/show", $data);
     }
 
 
