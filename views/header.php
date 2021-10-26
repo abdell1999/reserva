@@ -54,6 +54,8 @@ echo "<!DOCTYPE html>
                         <!-- Authentication Links -->";
 
                                                                 if(Security::thereIsSession()){
+                                                                    echo "<li class='nav-item'><a class='nav-link' href='index.php?controller=users&action=show'>Perfil</a>
+                                                                    </li>";
                                                                     echo "<li class='nav-item'><a class='nav-link' href='index.php?controller=users&action=logOut'>Cerrar Sesión</a>
                                                                     </li>";
     
