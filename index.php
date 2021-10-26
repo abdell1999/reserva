@@ -3,8 +3,14 @@
 include("controllers/resourcesController.php");
 include("controllers/usersController.php");
 
+
 //$controller -> CONTROLADOR
 //$action -> MÉTODO
+
+
+
+
+session_start();
 if (!isset($_REQUEST['controller']) && !isset($_REQUEST['action'])) {
     
         $controller = "resources";

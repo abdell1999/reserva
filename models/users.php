@@ -1,6 +1,7 @@
 <?php
 
 include_once("db.php");
+include_once("security.php");
 
 class User
 {
@@ -15,13 +16,26 @@ class User
     }
 
 
-    public function checkLogin($email, $pass)
+    public function login()
     {
-       $result = DB::dataQuery("SELECT * FROM users WHERE email = '$email' AND password = '$pass'");
-       if (count($result) > 0)
+
+        $email = $_REQUEST["email"];
+        $password = $_REQUEST["password"];
+
+       $result = DB::dataQuery("SELECT * FROM users WHERE email = '$email' AND password = '$password'");
+       if (count($result) > 0){
+
+       
+        //Asignarle el id de usuario a la sesión
+        $id = $result[0]['id'];
+        Security::createSession($id);
+
+
             return $result[0];
-        else
+        } else{
             return null;
+        }
+            
     }
 
 

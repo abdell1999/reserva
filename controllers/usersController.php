@@ -21,6 +21,28 @@ class UsersController {
     }
 
 
+
+
+    public function login(){
+        $result = $this->users->login();
+
+        if($result){
+
+            echo $result['id'];
+        }
+
+    }
+
+
+    public function logOut(){
+        Security::closeSession();
+        header("Location: index.php?controller=users&action=showLogin");
+    }
+
+
+
+
+
     public function showRegister(){
         $this->view->show("users/register");
     }
@@ -30,7 +52,7 @@ class UsersController {
         
             $result =  $this->users->register();
              if($result){
-                 echo "OK";
+                header("Location: index.php?controller=users&action=showLogin");
              }else{
                  echo "ERROR";
              }

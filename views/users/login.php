@@ -1,8 +1,15 @@
 <?php
 
+
+
+$controller = "users";
+$action = "login";
+
+
+
 echo "<main class='py-4'><div class='row justify-content-center'><div class='col-md-8'><div class='card'>
 <div class='card-header'>Acceder</div><div class='card-body'>
-<form method='POST' action='por poner algo aqui'>
+<form method='POST' action='index.php?controller=$controller&action=$action'>
     <div class='form-group row'>
         <label for='email' class='col-md-4 col-form-label text-md-right'>Correo electrónico</label>
 
