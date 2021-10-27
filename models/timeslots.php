@@ -20,6 +20,12 @@ class Timeslots
     }
 
 
+    public function getTimeslot($dayOfWeek){
+        $result = DB::dataQuery("SELECT * FROM timeslots WHERE dayOfWeek = '$dayOfWeek'");
+        return $result;
+    }
+
+
 
 
 
