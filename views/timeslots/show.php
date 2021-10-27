@@ -1,0 +1,66 @@
+<?php
+
+$timeslots = $data["timeslots"];
+
+
+if(isset($data["message"])){
+    $mensaje = $data["message"];
+    echo $data["message"];
+    echo "<br>";
+
+
+
+
+
+}
+
+
+
+//Esto es por si decido cambiar el nombre de los métodos del controlador o el controlador en sí
+$controller = "timeslots";
+$eliminar = "delete";
+$crear = "create";
+$editar = "edit";
+
+
+echo "<main class='py-4'><a class='btn btn-success' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar timeslot </a>";
+
+echo "<table class='table table-bordered grocery-crud-table table-hover' id='tablaTimeslots'>
+            <thead>
+              <tr>
+                <th>Día de la semana</th>
+                <th>Hora de inicio</th>
+                <th>Hora de finalización</th>
+                <th>Acciones</th>
+
+              </tr>
+            </thead>";
+
+
+//$timeslot['name']
+foreach ($timeslots as $timeslot) {
+
+    $id = $timeslot["id"];
+
+    echo "<tbody>
+        <tr>
+      <td>";
+      
+      echo $timeslot['dayOfWeek'];
+      echo "</td><td>";
+      echo $timeslot['startTime'];
+      echo "</td><td>";
+      echo $timeslot['endTime'];
+      echo "</td>
+      <td>
+      <a class='btn btn-warning' href='index.php?controller=$controller&action=$editar&id=$id'>Editar</a>
+      <a class='btn btn-danger' href='index.php?controller=$controller&action=$eliminar&id=$id'>Eliminar</a> 
+      
+      </td>
+
+    </tr>
+    <?php } ?>
+  </tbody>";
+  }
+  
+echo "</table></div></main>";

@@ -38,10 +38,10 @@ echo "<!DOCTYPE html>
       <a class='nav-link' href='index.php'>Inicio</a>
     </li>
     <li>
-      <a class='nav-link' href='#'>Resources</a>
+      <a class='nav-link' href='index.php?controller=resources&action=show'>Resources</a>
     </li>
     <li>
-      <a class='nav-link' href='#'>TimeSlots</a>
+      <a class='nav-link' href='index.php?controller=timeslots&action=show'>TimeSlots</a>
     </li>
     <li>
       <a class='nav-link' href='#'>Users</a>

@@ -49,6 +49,8 @@ class UsersController {
 
 
     public function register(){
+
+        //Realizar la validación del formulario en el lado del servidor y devolver la lista de errores.
         
             $result =  $this->users->register();
              if($result){
@@ -70,8 +72,15 @@ class UsersController {
 
     public function show(){
 
-        $data['userLogged'] = $this->userLogged();
-        $this->view->show("users/show", $data);
+
+        if(Security::thereIsSession()){
+            $data['userLogged'] = $this->userLogged();
+            $this->view->show("users/show", $data);
+        }else{
+            header("Location: index.php?controller=users&action=showLogin");
+        }
+
+        
     }
 
 

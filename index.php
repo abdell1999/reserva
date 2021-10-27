@@ -2,6 +2,8 @@
 
 include("controllers/resourcesController.php");
 include("controllers/usersController.php");
+include("controllers/reservationsController.php");
+include("controllers/timeslotsController.php");
 
 
 //$controller -> CONTROLADOR
@@ -13,7 +15,7 @@ include("controllers/usersController.php");
 session_start();
 if (!isset($_REQUEST['controller']) && !isset($_REQUEST['action'])) {
     
-        $controller = "resources";
+        $controller = "reservations";
         $action = "show";
 
     } else {

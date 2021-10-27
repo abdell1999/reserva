@@ -3,7 +3,7 @@
 include_once("db.php");
 include_once("security.php");
 
-class Reserva
+class Reservation
 {
 
     
