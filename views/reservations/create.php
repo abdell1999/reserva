@@ -13,17 +13,24 @@ $miercoles = $data['Miércoles'];
 $jueves = $data['Jueves'];
 $viernes = $data['Viernes'];
 
+//echo "<pre>";
+//print_r($data);
+//echo "</pre>";
+//print_r($lunes);
+//print_r($martes);
+//print_r($miercoles);
+//print_r($jueves);
+//print_r($viernes);
 
 
 
-echo "<div id='inicio' style ='display:none'></div>";
 
 
 echo "<label for='start'>Día:</label>
 
     <input type='date' id='reserva' name='trip-start'
-       value='2021-10-26'
-       min='2021-10-26' max='2030-12-31' onchange='seleccionarDia()'>";
+       value='2021-10-27'
+       min='2021-10-27' max='2030-12-31' onchange='seleccionarDia()'>";
        
        
        echo "<div id='rellenableLunes' style ='display:none'>";
@@ -40,7 +47,7 @@ echo "<label for='start'>Día:</label>
             echo "</div>";
 
 
-
+            
 
             echo "<div id='rellenableMartes' style ='display:none'>";
             echo "Seleccione en que tramo desea reservar:";
