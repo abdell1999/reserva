@@ -20,7 +20,7 @@ class User
     {
 
         $email = $_REQUEST["email"];
-        $password = $_REQUEST["password"];
+        $password = md5($_REQUEST["password"]);
 
        $result = DB::dataQuery("SELECT * FROM users WHERE email = '$email' AND password = '$password'");
        if (count($result) > 0){
@@ -44,7 +44,7 @@ class User
         if(isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQUEST['realname']) && isset($_REQUEST['lastname1']) && isset($_REQUEST['email'])){
 
             $username = $_REQUEST['username'];
-            $password = $_REQUEST['password'];
+            $password = md5($_REQUEST["password"]);
             $realname = $_REQUEST['realname'];
             $lastname1 = $_REQUEST['lastname1'];
             $email = $_REQUEST['email'];
