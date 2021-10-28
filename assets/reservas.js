@@ -1,10 +1,13 @@
-function seleccionarDia(){
+alert("HOLA");
 
-    reserva1 = document.getElementById("reserva").value;
+function seleccionarDiaSemana(){
+
+    reserva1 = document.getElementById("fecha").value;
     reserva = new Date(reserva1);
     rellenableLunes = document.getElementById("rellenableLunes");
-
-
+    rellenableMartes = document.getElementById("rellenableMartes");
+    
+//jjjj
     
     switch (reserva.getDay()) {
         case 1:
@@ -17,6 +20,9 @@ function seleccionarDia(){
           break;
         case 2:
             diaSemana = "Martes";
+            rellenableMartes.style.display = "block";
+            alert("MARTES");
+            
           break;
        
         case 3:

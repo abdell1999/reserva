@@ -1,6 +1,6 @@
 <?php
 
-echo "<script src='assets/reservas.js'></script>";
+echo "<script src='assets/reservas2.js'></script>";
 
 echo "<br>";
 echo "<br>";
@@ -28,9 +28,9 @@ $viernes = $data['Viernes'];
 
 echo "<label for='start'>Día:</label>
 
-    <input type='date' id='reserva' name='trip-start'
+    <input type='date' id='fecha' name='trip-start'
        value='2021-10-27'
-       min='2021-10-27' max='2030-12-31' onchange='seleccionarDia()'>";
+       min='2021-10-27' max='2030-12-31' onchange='seleccionarDiaSemana()'>";
        
        
        echo "<div id='rellenableLunes' style ='display:none'>";
