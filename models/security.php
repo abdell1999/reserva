@@ -15,8 +15,8 @@ class Security {
      * Cambia el rol de usuario asociado a una sesión
      * @param $idRol El id del rol que se quiere asociar a la sesión
      */
-    public static function changeRol($idRol) {
-        $_SESSION['idRol'] = $idRol;
+    public static function changeType($type) {
+        $_SESSION['type'] = $type;
     }
 
     /**
@@ -27,10 +27,10 @@ class Security {
     }
 
     /**
-     * Devuelve el id del rol del usuario logueado
+     * Devuelve el el campo type del usuario logueado
      */
-    public static function getRolId() {
-        return $_SESSION['idRol'];
+    public static function getType() {
+        return $_SESSION['type'];
     }
 
     /** 

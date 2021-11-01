@@ -41,15 +41,25 @@ echo "<!DOCTYPE html>
       <a class='nav-link' href='index.php?controller=resources&action=show'>Resources</a>
     </li>
     <li>
+      <a class='nav-link' href='index.php?controller=reservations&action=show'>Reservas</a>
+    </li>";
+    
+        
+    if(Security::getType() == 1){
+        echo "<li>
       <a class='nav-link' href='index.php?controller=timeslots&action=show'>TimeSlots</a>
     </li>
     <li>
       <a class='nav-link' href='#'>Users</a>
-    </li>
-   
-                    </ul>
+    </li>";
+    }
+    
+    
+    
 
-                    <!-- Right Side Of Navbar -->
+                   echo "
+   
+                   </ul> <!-- Right Side Of Navbar -->
                     <ul class='navbar-nav ml-auto'>
                         <!-- Authentication Links -->";
 

@@ -28,8 +28,11 @@ class User
        
         //Asignarle el id de usuario a la sesión
         $id = $result[0]['id'];
-        Security::createSession($id);
+        $type = $result[0]['type'];
 
+        
+        Security::createSession($id);
+        Security::changeType($type);
 
             return $result[0];
         } else{
@@ -53,10 +56,10 @@ class User
 
                 $lastname2 = $_REQUEST['lastname2'];
 
-                $result = DB::dataManipulation("INSERT INTO users(username,password,realname,lastname1,email,lastname2) VALUES ('$username', '$password', '$realname', '$lastname1', '$email', '$lastname2')");
+                $result = DB::dataManipulation("INSERT INTO users(username,password,realname,lastname1,email,lastname2,type) VALUES ('$username', '$password', '$realname', '$lastname1', '$email', '$lastname2',0)");
 
             }else{
-                $result = DB::dataManipulation("INSERT INTO users(username,password,realname,lastname1,email) VALUES ('$username', '$password', '$realname', '$lastname1', '$email')");
+                $result = DB::dataManipulation("INSERT INTO users(username,password,realname,lastname1,email,type) VALUES ('$username', '$password', '$realname', '$lastname1', '$email',0)");
             }
 
 

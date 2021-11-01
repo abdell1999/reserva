@@ -13,6 +13,12 @@ include("controllers/timeslotsController.php");
 
 
 session_start();
+if(!isset($_SESSION['type'])){
+    $_SESSION['type'] = null;
+}
+
+
+
 if (!isset($_REQUEST['controller']) && !isset($_REQUEST['action'])) {
     
         $controller = "reservations";
