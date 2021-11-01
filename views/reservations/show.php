@@ -1,21 +1,23 @@
 <?php
-echo "<link href='assets/fullcalendar/main.css' rel='stylesheet' />
-<script src='assets/fullcalendar/main.js'></script>";
+echo "<main class='py-4'>";
+if(isset($data["error"])){
+    
+    echo "<div class='alert alert-danger' role='alert'>";
+    echo $data["error"];
+    echo "</div>";
+
+  }
+if(isset($data["correcto"])){
+  echo "<div class='alert alert-success' role='alert'>";
+  echo $data["correcto"];
+  echo "</div>";
 
 
-echo "<script>
 
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth'
-  });
-  calendar.render();
-});
-
-</script>";
+}
 
 
-echo "<div id='calendar'></div>";
+echo "</main>";
+
 
 

@@ -21,9 +21,9 @@ class ReservationsController {
     }
 
 
-    public function show(){
+    public function show($data = null){
         //$data['list'] = $this->res->get();
-        $this->view->show("reservations/show");
+        $this->view->show("reservations/show", $data);
     }
 
 
@@ -41,6 +41,32 @@ class ReservationsController {
 
         $this->view->show("reservations/create", $data);
 
+    }
+
+
+
+    public function mostrarHorario(){
+        $id = $_REQUEST['idResource'];
+        $data['resource'] = $this->resources->getElement($id);
+        $data['horario'] = $this->reservations->mostrarHorario();
+        $this->view->show("reservations/create2", $data);
+
+    }
+
+
+
+    public function store(){
+        $result = $this->reservations->store();
+
+
+        if($result == 1){
+            $data['correcto'] = "Reservada creada correctamente";
+            
+        }else{
+            $data['error'] = "Ha ocurrido un error al hacer la reserva";
+        }
+
+        $this->show($data);
     }
 
 

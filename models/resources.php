@@ -24,9 +24,11 @@ class Resources
     }
 
 
-    public function getElement()
+    public function getElement($id = null)
     {
-        $id = $_REQUEST['id'];
+        if($id == null){
+            $id = $_REQUEST['id'];
+        }
        $result = DB::dataQuery("SELECT * FROM resources WHERE id=$id");
        return $result;
     }
