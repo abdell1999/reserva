@@ -23,7 +23,7 @@ class User
         $password = md5($_REQUEST["password"]);
 
        $result = DB::dataQuery("SELECT * FROM users WHERE email = '$email' AND password = '$password'");
-       if (count($result) > 0){
+       if ($result){
 
        
         //Asignarle el id de usuario a la sesión

@@ -5,9 +5,17 @@
 $controller = "users";
 $action = "login";
 
+echo "<main class='py-4'>";
+if(isset($data['error'])){
+    echo "<div class='alert alert-danger' role='alert'>";
+    echo $data["error"];
+    echo "</div>";
+
+}
 
 
-echo "<main class='py-4'><div class='row justify-content-center'><div class='col-md-8'><div class='card'>
+
+echo "<div class='row justify-content-center'><div class='col-md-8'><div class='card'>
 <div class='card-header'>Acceder</div><div class='card-body'>
 <form method='POST' action='index.php?controller=$controller&action=$action'>
     <div class='form-group row'>

@@ -23,12 +23,15 @@ class UsersController {
 
 
 
-    public function login(){
+    public function login($data = null){
         $result = $this->users->login();
 
         if($result){
 
             header("Location: index.php");
+        }else{
+            $data['error'] = "Los datos que ha introducido no coinciden con ningún usuario";
+            $this->view->show("users/login", $data);
         }
 
     }
