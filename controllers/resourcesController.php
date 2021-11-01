@@ -3,16 +3,18 @@
 include_once ("view.php");
 include_once ("models/resources.php");
 include_once ("models/security.php");
+include_once ("errorController.php");
 
 
 class ResourcesController {
 
-    private $view, $resources;
+    private $view, $resources, $error;
 
     public function __construct() {
     
         $this->view = new View();
         $this->resources = new Resources();
+        $this->error = new ErrorController();
     }
 
 
@@ -29,56 +31,80 @@ class ResourcesController {
     
     
 
-    public function delete($id){
-        $result = $this->resources->delete($id);
+    public function delete(){
 
-        if($result>0){
-            $data["message"] = "Eliminado correctamente";
+        if(Security::getType()==1){
+            $result = $this->resources->delete();
+
+            if($result>0){
+                $data["message"] = "Eliminado correctamente";
+            }else{
+                $data["message"] = "Ha ocurrido un error al eliminar";
+            }
+    
+    
+            //Preguntarle al profesor, ya que esto es un poco espagueti
+            //$data['list'] = $this->resources->get();
+            //$this->view->show("resources/show", $data);
+    
+            //return redirect()->action([ArticuloController::class, 'index']);
+    
+            $this->show($data);
+    
+    
+            //Coger el server desde el config
+            //header ("Location: index.php");
         }else{
-            $data["message"] = "Ha ocurrido un error al eliminar";
+            
+            $this->error->show404();
         }
 
 
-        //Preguntarle al profesor, ya que esto es un poco espagueti
-        //$data['list'] = $this->resources->get();
-        //$this->view->show("resources/show", $data);
 
-        //return redirect()->action([ArticuloController::class, 'index']);
-
-        $this->show($data);
+        }
 
 
-        //Coger el server desde el config
-        //header ("Location: index.php");
-    }
 
 
     //Los request hacerlos en el modelo y pasarlos por la clase security que es otro modelo.
     //Todo lo que implique crear cosas en el serveer hacerlo en el modelo
     public function create(){
+        if(Security::getType()==1){
         $this->view->show("resources/create");
+        }else{
+            $this->error->show404();
+
+        }
     }
 
 
     public function store(){
+        if(Security::getType()==1){
        $result =  $this->resources->store();
         if($result){
             echo "OK";
         }else{
             echo "ERROR";
         }
-        
+    }else{
+        $this->error->show404();
+    }
     }
 
 
-    public function edit($id){
-        $data['element'] = $this->resources->getElement($id);
+    public function edit(){
+        if(Security::getType()==1){
+        $data['element'] = $this->resources->getElement();
         $this->view->show("resources/edit", $data);
+        }else{
+            $this->error->show404();
+        }
     }
 
 
-    public function update($id){
-        $result = $this->resources->update($id);
+    public function update(){
+        if(Security::getType()==1){
+        $result = $this->resources->update();
 
         if($result){
             echo "OK";
@@ -86,7 +112,9 @@ class ResourcesController {
             echo "ERROR";
         }
 
-
+    }else{
+        $this->error->show404();
+    }
 
 
     }

@@ -24,8 +24,9 @@ class Resources
     }
 
 
-    public function getElement($id)
+    public function getElement()
     {
+        $id = $_REQUEST['id'];
        $result = DB::dataQuery("SELECT * FROM resources WHERE id=$id");
        return $result;
     }
@@ -33,7 +34,8 @@ class Resources
 
 
     
-    public function delete($id){
+    public function delete(){
+        $id = $_REQUEST['id'];
         $result = DB::dataManipulation("DELETE FROM resources WHERE id = '$id'"); 
         return $result;
     }
@@ -84,7 +86,7 @@ class Resources
 
 
 
-    public function update($id){
+    public function update(){
 
         
         if( isset($_REQUEST["id"]) && isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["location"])){
