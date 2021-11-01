@@ -4,6 +4,8 @@ include("controllers/resourcesController.php");
 include("controllers/usersController.php");
 include("controllers/reservationsController.php");
 include("controllers/timeslotsController.php");
+include("controllers/errorController.php");
+
 
 
 //$controller -> CONTROLADOR
