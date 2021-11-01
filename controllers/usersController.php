@@ -7,12 +7,13 @@ include_once ("errorController.php");
 
 class UsersController {
 
-    private $view, $users;
+    private $view, $users, $error;
 
     public function __construct() {
     
         $this->view = new View();
         $this->users = new User();
+        $this->error = new ErrorController();
         
 
 
@@ -81,9 +82,16 @@ class UsersController {
 
     public function show($data = null){
 
-        $data['users'] = $this->users->get();
+        if(Security::getType()==1){
+            
+            $data['users'] = $this->users->get();
 
         $this->view->show("users/show", $data);
+    
+        }else{
+            
+            $this->error->show404();
+        }
         
     }
 

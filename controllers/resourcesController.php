@@ -71,11 +71,13 @@ class ResourcesController {
     public function store(){
         if(Security::getType()==1){
        $result =  $this->resources->store();
-        if($result){
-            echo "OK";
-        }else{
-            echo "ERROR";
-        }
+       if($result>0){
+        $data["message1"] = "Recurso creado correctamente";
+    }else{
+        $data["message"] = "Ha ocurrido un error al crear el recurso";
+    }
+    $this->show($data);
+
     }else{
         $this->error->show404();
     }
@@ -96,11 +98,12 @@ class ResourcesController {
         if(Security::getType()==1){
         $result = $this->resources->update();
 
-        if($result){
-            echo "OK";
+        if($result>0){
+            $data["message1"] = "Recurso editado correctamente";
         }else{
-            echo "ERROR";
+            $data["message"] = "Ha ocurrido un error al modificar el recurso";
         }
+        $this->show($data);
 
     }else{
         $this->error->show404();

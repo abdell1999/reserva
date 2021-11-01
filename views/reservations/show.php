@@ -17,6 +17,9 @@ if(isset($data["correcto"])){
 }
 
 
+echo "Aqui irá la lista de reservas";
+
+
 echo "</main>";
 
 

@@ -39,6 +39,15 @@ if($type == 1){
 }
 
 
+echo "<script type='text/javascript'>
+function confirmar(id)
+{
+    if(confirm('¿Estás segur@ de que quieres eliminar este recurso (ESTE PROCESO ES IRREVERSIBLE)?'))
+    {
+        window.location.href = 'index.php?controller=resources&action=delete&id='+id;
+    }
+}
+</script>";
 
 
 
@@ -79,10 +88,10 @@ foreach ($resources as $resource) {
 
       if($type == 1){
      echo "<td>
-      <a class='btn btn-warning' href='index.php?controller=$controller&action=$editar&id=$id'>Editar</a>
-      <a class='btn btn-danger' href='index.php?controller=$controller&action=$eliminar&id=$id'>Eliminar</a>"; 
-      
-      
+      <a class='btn btn-warning' href='index.php?controller=$controller&action=$editar&id=$id'>Editar</a>";
+      //echo "<a class='btn btn-danger' href='index.php?controller=$controller&action=$eliminar&id=$id'>Eliminar</a>"; 
+      //onclick='confirmar($id)'
+      echo "<a class='btn btn-danger' href='#' onclick='confirmar($id)'>Eliminar</a>";
       }
 
       if(Security::thereIsSession()){
