@@ -11,7 +11,7 @@ echo "<form role='form' enctype='multipart/form-data' method='POST' action='inde
   <label for='dayOfWeek'>Dia de la semana:</label>
   <select name='dayOfWeek' required class='form-control'>
   <option value='Lunes'>Lunes</option>
-  <option value='Martes'>Lunes</option>
+  <option value='Martes'>Martes</option>
   <option value='Miercoles'>Miércoles</option>
   <option value='Jueves'>Jueves</option>
   <option value='Viernes'>Viernes</option>

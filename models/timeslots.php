@@ -43,6 +43,37 @@ class Timeslots
     }
 
 
+    public function getElement($id = null)
+    {
+        if($id == null){
+            $id = $_REQUEST['id'];
+        }
+       $result = DB::dataQuery("SELECT * FROM timeslots WHERE id=$id");
+       return $result;
+    }
+
+
+
+    public function update(){
+
+        if(isset($_REQUEST['id']) && isset($_REQUEST['dayOfWeek']) && isset($_REQUEST['startTime']) && isset($_REQUEST['endTime'])){
+
+            $id = $_REQUEST['id'];
+            $dayOfWeek = $_REQUEST['dayOfWeek'];
+            $startTime = $_REQUEST['startTime'];
+            $endTime = $_REQUEST['endTime'];
+
+            $result = DB::dataManipulation("UPDATE timeslots SET dayOfWeek='$dayOfWeek', startTime='$startTime', endTime='$endTime' WHERE id='$id'");
+
+        }else{
+            $result = null;
+        }
+
+        
+        return $result;
+    }
+
+
 
 
 }
