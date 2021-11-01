@@ -22,4 +22,29 @@ class TimeslotsController {
     }
 
 
+
+    public function create(){
+        $this->view->show("timeslots/create");
+
+    }
+
+    public function store(){
+        $result = $this->timeslots->store();
+
+        if($result == 1){
+            $data['correcto'] = "Timeslot creado correctamente";
+            
+        }else{
+            $data['error'] = "Ha ocurrido un error al crear el timeslot";
+        }
+
+        $this->show($data);
+
+
+    }
+
+
+
+
+
 }

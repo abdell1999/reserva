@@ -23,7 +23,28 @@ $crear = "create";
 $editar = "edit";
 
 
-echo "<main class='py-4'><a class='btn btn-success' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar timeslot </a>";
+echo "<main class='py-4'>";
+if(isset($data["error"])){
+    
+    echo "<div class='alert alert-danger' role='alert'>";
+    echo $data["error"];
+    echo "</div>";
+
+  }
+if(isset($data["correcto"])){
+  echo "<div class='alert alert-success' role='alert'>";
+  echo $data["correcto"];
+  echo "</div>";
+
+
+
+}
+
+
+
+
+
+echo "<a class='btn btn-success' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar timeslot </a>";
 
 echo "<table class='table table-bordered grocery-crud-table table-hover' id='tablaTimeslots'>
             <thead>

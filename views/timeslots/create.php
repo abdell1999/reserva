@@ -4,31 +4,33 @@
 $controller = "timeslots";
 $action = "store";
 
-echo "<div class='container'> <h1>Agregar recurso</h1>";
+echo "<div class='container'> <h1>Agregar timeslot</h1>";
 
 echo "<form role='form' enctype='multipart/form-data' method='POST' action='index.php?controller=$controller&action=$action'>
 <div class='form-group'>
-  <label for='name'>Nombre:</label>
-  <input type='text' class='form-control' name='name' required>
+  <label for='dayOfWeek'>Dia de la semana:</label>
+  <select name='dayOfWeek' required class='form-control'>
+  <option value='Lunes'>Lunes</option>
+  <option value='Martes'>Lunes</option>
+  <option value='Miercoles'>Miércoles</option>
+  <option value='Jueves'>Jueves</option>
+  <option value='Viernes'>Viernes</option>
+  <option value='Sabado' disabled>Sábado</option>
+  <option value='Domingo' disabled>Domigo</option>
+  
+  
+  </select>
+
 </div>
 <div class='form-group'>
-  <label for='description'>Descripción:</label>
-  <input type='text' class='form-control' name='description' required>
+  <label for='startTime'>Hora de inicio</label>
+  <input type='time' class='form-control' name='startTime' required>
 </div>
 <div class='form-group'>
-  <label for='location'>Ubicación:</label>
-  <input type='text' class='form-control' name='location' required>
+  <label for='endtTime'>Hora de finalización</label>
+  <input type='time' class='form-control' name='endTime' required>
 </div>
-
-
-
-
-
-<div class='form-group'>
-  <label for='image'>Imagen:</label>
-  <input type='file' class='form-control' name='image' required>
 </div>
-
 
 
 
