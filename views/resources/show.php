@@ -1,6 +1,7 @@
 <?php
 
 $resources = $data["list"];
+$type = $data["type"];
 
 
 if(isset($data["message"])){
@@ -22,8 +23,10 @@ $eliminar = "delete";
 $crear = "create";
 $editar = "edit";
 
+if($type == 1){
+  echo "<main class='py-4'><a class='btn btn-success' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar recurso </a>";
+}
 
-echo "<main class='py-4'><a class='btn btn-success' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar recurso </a>";
 
 echo "<table class='table table-bordered grocery-crud-table table-hover' id='tablaRecursos'>
             <thead>
@@ -31,10 +34,11 @@ echo "<table class='table table-bordered grocery-crud-table table-hover' id='tab
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Ubicación</th>
-                <th>Imagen</th>
-                <th>Acciones</th>
-
-              </tr>
+                <th>Imagen</th>";
+                if($type == 1){
+                echo "<th>Acciones</th>";
+                }
+              echo "</tr>
             </thead>";
 
 
@@ -57,16 +61,19 @@ foreach ($resources as $resource) {
         $imagen = $resource["image"];
 
       echo "<img class='card-img-top col-md-4 d-none d-md-block ml-6' src='$imagen' alt='Imagen'>
-      </td>
-      <td>
+      </td>";
+
+      if($type == 1){
+     echo "<td>
       <a class='btn btn-warning' href='index.php?controller=$controller&action=$editar&id=$id'>Editar</a>
       <a class='btn btn-danger' href='index.php?controller=$controller&action=$eliminar&id=$id'>Eliminar</a> 
       
-      </td>
+      </td>";
+      }
 
-    </tr>
-    <?php } ?>
-  </tbody>";
-  }
+   echo " </tr>";
+    }
+  echo "</tbody>";
+  
   
 echo "</table></div></main>";

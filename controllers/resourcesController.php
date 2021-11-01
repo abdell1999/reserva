@@ -2,6 +2,7 @@
 
 include_once ("view.php");
 include_once ("models/resources.php");
+include_once ("models/security.php");
 
 
 class ResourcesController {
@@ -19,6 +20,9 @@ class ResourcesController {
     public function show($data = null){
 
         $data['list'] = $this->resources->get();
+
+        $data['type'] = Security::getType();
+
         $this->view->show("resources/show", $data);
 
     }
