@@ -37,23 +37,13 @@ class ResourcesController {
             $result = $this->resources->delete();
 
             if($result>0){
-                $data["message"] = "Eliminado correctamente";
+                $data["message1"] = "Eliminado correctamente";
             }else{
                 $data["message"] = "Ha ocurrido un error al eliminar";
             }
     
-    
-            //Preguntarle al profesor, ya que esto es un poco espagueti
-            //$data['list'] = $this->resources->get();
-            //$this->view->show("resources/show", $data);
-    
-            //return redirect()->action([ArticuloController::class, 'index']);
-    
             $this->show($data);
     
-    
-            //Coger el server desde el config
-            //header ("Location: index.php");
         }else{
             
             $this->error->show404();

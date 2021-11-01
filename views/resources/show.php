@@ -3,17 +3,28 @@
 $resources = $data["list"];
 $type = $data["type"];
 
-
+echo "<main class='py-4'>";
 if(isset($data["message"])){
-    $mensaje = $data["message"];
+    
+    echo "<div class='alert alert-danger' role='alert'>";
     echo $data["message"];
-    echo "<br>";
+    echo "</div>";
 
-
+  }
+if(isset($data["message1"])){
+  echo "<div class='alert alert-success' role='alert'>";
+  echo $data["message1"];
+  echo "</div>";
 
 
 
 }
+
+
+
+
+
+
 
 
 
@@ -24,8 +35,11 @@ $crear = "create";
 $editar = "edit";
 
 if($type == 1){
-  echo "<main class='py-4'><a class='btn btn-success' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar recurso </a>";
+  echo "<a class='btn btn-success' href='index.php?controller=$controller&action=$crear'><i class='fa fa-plus'></i>&nbsp;Agregar recurso </a>";
 }
+
+
+
 
 
 echo "<table class='table table-bordered grocery-crud-table table-hover' id='tablaRecursos'>
