@@ -49,7 +49,7 @@ echo "<table class='table table-bordered grocery-crud-table table-hover' id='tab
                 <th>Descripción</th>
                 <th>Ubicación</th>
                 <th>Imagen</th>";
-                if($type == 1){
+                if(Security::thereIsSession()){
                 echo "<th>Acciones</th>";
                 }
               echo "</tr>
@@ -80,10 +80,21 @@ foreach ($resources as $resource) {
       if($type == 1){
      echo "<td>
       <a class='btn btn-warning' href='index.php?controller=$controller&action=$editar&id=$id'>Editar</a>
-      <a class='btn btn-danger' href='index.php?controller=$controller&action=$eliminar&id=$id'>Eliminar</a> 
+      <a class='btn btn-danger' href='index.php?controller=$controller&action=$eliminar&id=$id'>Eliminar</a>"; 
       
-      </td>";
+      
       }
+
+      if(Security::thereIsSession()){
+        if($type == 0){ //Si existe una sesion y es de tipo normal creara la etiqueta td ya que esta no habra sido creada arriba si no, no y asi no hay dos por lo cual la tabla estara mejor encuadrada
+          echo "<td>";
+        }
+
+        echo " <a class='btn btn-dark' href='index.php?controller=reservations&action=create&id=$id'>Reservar</a>";
+      }
+
+      
+      echo "</td>";
 
    echo " </tr>";
     }

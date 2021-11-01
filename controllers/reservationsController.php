@@ -3,6 +3,7 @@
 include_once ("view.php");
 include_once ("models/reservations.php");
 include_once ("models/timeslots.php");
+include_once ("models/resources.php");
 
 
 
@@ -16,6 +17,7 @@ class ReservationsController {
         $this->view = new View();
         $this->reservations = new Reservation();
         $this->timeslots = new Timeslots();
+        $this->resources = new Resources();
     }
 
 
@@ -26,6 +28,9 @@ class ReservationsController {
 
 
     public function create(){
+
+        //Luego hacer que si no devuelve nada lanzar un error 404 por ejemplo
+        $data['resource'] = $this->resources->getElement();
 
 
         $data['Lunes'] = $this->timeslots->getTimeslot("Lunes");
