@@ -38,10 +38,7 @@ echo "<!DOCTYPE html>
       <a class='nav-link' href='index.php'>Inicio</a>
     </li>
     <li>
-      <a class='nav-link' href='index.php?controller=resources&action=show'>Resources</a>
-    </li>
-    <li>
-      <a class='nav-link' href='index.php?controller=reservations&action=show'>Reservas</a>
+      <a class='nav-link' href='index.php?controller=resources&action=show'>Recursos</a>
     </li>";
     
         
@@ -50,7 +47,7 @@ echo "<!DOCTYPE html>
       <a class='nav-link' href='index.php?controller=timeslots&action=show'>TimeSlots</a>
     </li>
     <li>
-      <a class='nav-link' href='#'>Users</a>
+      <a class='nav-link' href='index.php?controller=users&action=show'>Users</a>
     </li>";
     }
     
@@ -64,8 +61,7 @@ echo "<!DOCTYPE html>
                         <!-- Authentication Links -->";
 
                                                                 if(Security::thereIsSession()){
-                                                                    echo "<li class='nav-item'><a class='nav-link' href='index.php?controller=users&action=show'>Perfil</a>
-                                                                    </li>";
+                                                                    //echo "<li class='nav-item'><a class='nav-link' href='index.php?controller=users&action=show'>Perfil</li>";
                                                                     echo "<li class='nav-item'><a class='nav-link' href='index.php?controller=users&action=logOut'>Cerrar Sesión</a>
                                                                     </li>";
     

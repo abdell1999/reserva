@@ -16,6 +16,23 @@ class User
     }
 
 
+
+    public function get(){
+        $result = DB::dataQuery("SELECT * FROM users");
+        return $result;
+    }
+
+
+
+    public function getElement(){
+        $id = $_REQUEST['id'];
+        $result = DB::dataQuery("SELECT * FROM users WHERE id=$id");
+        return $result;
+
+    }
+
+
+
     public function login()
     {
 
@@ -86,6 +103,33 @@ class User
         
 
     }
+
+
+    public function update(){
+
+        if(isset($_REQUEST['id']) && isset($_REQUEST['realname']) && isset($_REQUEST['lastname1']) && isset($_REQUEST['password']) && isset($_REQUEST['email'])){
+
+            $id = $_REQUEST['id'];
+            $realname = $_REQUEST['realname'];
+            $lastname1 = $_REQUEST['lastname1'];
+            $email = $_REQUEST['email'];
+            $password = md5($_REQUEST['password']);
+
+            if(isset($_REQUEST['lastname2'])){
+                $lastname2 = $_REQUEST['lastname2'];
+                $result = DB::dataManipulation("UPDATE users SET realname='$realname', lastname1='$lastname1',lastname2='$lastname2', email='$email', password='$password' WHERE id='$id'");
+            }else{
+                $result = DB::dataManipulation("UPDATE users SET realname='$realname', lastname1='$lastname1', email='$email', password='$password' WHERE id='$id'");
+            }
+
+        }else{
+            $result = null;
+        }
+
+        
+        return $result;
+    }
+
 
 
 

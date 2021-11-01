@@ -1,7 +1,16 @@
 <?php
 
 $controller = "users";
-$action = "register";
+$action = "update";
+
+$user = $data['user'][0];
+
+$realname = $user['realname'];
+$lastname1 = $user['lastname1'];
+$lastname2 = $user['lastname2'];
+$email = $user['email'];
+$username = $user['username'];
+$id = $user['id'];
 
 
 
@@ -19,18 +28,18 @@ echo " <main class='py-4'>
                 <label for='username' class='col-md-4 col-form-label text-md-right'>Nombre de usuario:</label>
 
                 <div class='col-md-6'>
-                    <input id='name' type='text' class='form-control ' name='username' value='' required autocomplete='username' autofocus>
+                    <input id='name' type='text' class='form-control ' name='username' value='$username' required autocomplete='username' autofocus>
 
                                                 </div>
             </div>
 
-
+    <input type=hidden name='id' value='$id'>
 
             <div class='form-group row'>
                 <label for='realname' class='col-md-4 col-form-label text-md-right'>Nombre:</label>
 
                 <div class='col-md-6'>
-                    <input id='realname' type='text' class='form-control ' name='realname' value='' required autocomplete='realname' autofocus>
+                    <input id='realname' type='text' class='form-control ' name='realname' value='$realname' required autocomplete='realname' autofocus>
 
                                                 </div>
             </div>
@@ -43,7 +52,7 @@ echo " <main class='py-4'>
                 <label for='lastname1' class='col-md-4 col-form-label text-md-right'>Primer apellido:</label>
 
                 <div class='col-md-6'>
-                    <input id='lastname1' type='text' class='form-control ' name='lastname1' value='' required autocomplete='lastname1' autofocus>
+                    <input id='lastname1' type='text' class='form-control ' name='lastname1' value='$lastname1' required autocomplete='lastname1' autofocus>
 
                                                 </div>
             </div>
@@ -56,7 +65,7 @@ echo " <main class='py-4'>
                 <label for='lastname2' class='col-md-4 col-form-label text-md-right'>Segundo apellido:</label>
 
                 <div class='col-md-6'>
-                    <input id='lastname2' type='text' class='form-control ' name='lastname2' value='' autocomplete='lastname2' autofocus>
+                    <input id='lastname2' type='text' class='form-control ' name='lastname2' value='$lastname2' autocomplete='lastname2' autofocus>
 
                                                 </div>
             </div>
@@ -73,7 +82,7 @@ echo " <main class='py-4'>
                 <label for='email' class='col-md-4 col-form-label text-md-right'>Correo electrónico</label>
 
                 <div class='col-md-6'>
-                    <input id='email' type='email' class='form-control ' name='email' value='' required autocomplete='email'>
+                    <input id='email' type='email' class='form-control ' name='email' value='$email' required autocomplete='email'>
 
                                                 </div>
             </div>
@@ -91,7 +100,7 @@ echo " <main class='py-4'>
             <div class='form-group row mb-0'>
                 <div class='col-md-6 offset-md-4'>
                     <button type='submit' class='btn btn-primary'>
-                        Registro
+                        Cambiar datos
                     </button>
                 </div>
             </div>

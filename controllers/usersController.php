@@ -2,6 +2,7 @@
 
 include_once ("view.php");
 include_once ("models/users.php");
+include_once ("errorController.php");
 
 
 class UsersController {
@@ -12,6 +13,11 @@ class UsersController {
     
         $this->view = new View();
         $this->users = new User();
+        
+
+
+
+
     }
 
 
@@ -73,17 +79,38 @@ class UsersController {
     }
 
 
-    public function show(){
+    public function show($data = null){
+
+        $data['users'] = $this->users->get();
+
+        $this->view->show("users/show", $data);
+        
+    }
 
 
-        if(Security::thereIsSession()){
-            $data['userLogged'] = $this->userLogged();
-            $this->view->show("users/show", $data);
+
+    public function edit(){
+        if(Security::getType()==1){
+        $data['user'] = $this->users->getElement();
+        $this->view->show("users/edit", $data);
         }else{
-            header("Location: index.php?controller=users&action=showLogin");
+            $this->error->show404();
+        }
+    }
+
+
+    public function update(){
+        $result = $this->users->update();
+
+        if($result == 1){
+            $data['correcto'] = "Usuario modificado correctamente";
+            
+        }else{
+            $data['error'] = "Ha ocurrido un error al modificar los datos del usuario";
         }
 
         
+        $this->show($data);
     }
 
 
