@@ -2,6 +2,7 @@
 
 include_once("db.php");
 include_once("security.php");
+include_once("reservations.php");
 
 class Resources
 {
@@ -35,10 +36,13 @@ class Resources
 
 
 
-    
+//    
     public function delete(){
         $id = $_REQUEST['id'];
+        $reservations = new Reservation();
+        $reservations->deleteByResource($id);
         $result = DB::dataManipulation("DELETE FROM resources WHERE id = '$id'"); 
+        
         return $result;
     }
 

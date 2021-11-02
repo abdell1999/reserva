@@ -66,6 +66,13 @@ class Reservation
     }
 
 
+    public function deleteByResource(){
+        $idResource = $_REQUEST['id'];
+        $result = DB::dataManipulation("DELETE FROM reservations WHERE id_resource = '$idResource'");
+        return $result;
+    }
+
+
 
 
 
