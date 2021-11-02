@@ -87,6 +87,38 @@ class Reservation
     }
 
 
+    public function get(){
+        $result = DB::dataQuery("SELECT * FROM reservations
+        INNER JOIN resources ON reservations.id_resource = resources.id
+        INNER JOIN timeslots ON reservations.id_timeslot = timeslots.id
+        INNER JOIN users ON reservations.id_user = users.id");
+
+        return $result;
+    }
+
+
+    public function delete(){
+
+        if(isset($_REQUEST['idResource']) && isset($_REQUEST['idUser']) && isset($_REQUEST['idUser'])){
+            if(Security::getType()==1 || Security::getUserId() == $_REQUEST['idUser']){
+                $idResource = $_REQUEST['idResource'];
+                $idUser = $_REQUEST['idUser'];
+                $idTimeslot = $_REQUEST['idTimeslot'];
+                $result = DB::dataManipulation("DELETE FROM reservations WHERE id_resource = '$idResource' AND id_user = '$idUser' AND id_timeslot = '$idTimeslot'"); 
+            }
+        
+        
+
+        
+        
+        }else{
+            $result = null;
+        }
+
+        
+        
+        return $result;
+    }
 
 
 

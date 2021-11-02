@@ -36,7 +36,7 @@ echo $fecha;
 echo "<input type='hidden' name='fecha' id='fecha' value=$fecha>";
 echo "<br>";
 echo "<strong>Seleccione el tramo a reservar:</strong> ";
-echo "<select name='idHorario' id='idHorario' required>";
+echo "<select name='idHorario' id='idHorario' required class='form-group'>";
 
 
 
@@ -74,8 +74,8 @@ foreach ($dias as $dia) {
 echo "</select>";
 
 echo "<br>";
-echo "<strong>Comentarios:</strong> ";
-echo "<textarea name='remarks' id='remarks' required></textarea>";
+echo "<div class='form-group'><strong>Comentarios:</strong> ";
+echo "<input type='text' class='form-control' name='remarks' id='remarks' required></div>";
 echo "<br>";
 echo "<input type='submit' class='btn btn-success' value='Hacer reserva'>";
 
@@ -84,3 +84,5 @@ echo "</form>";
 
 
 echo "</main>";
+
+

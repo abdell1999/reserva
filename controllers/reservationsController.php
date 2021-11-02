@@ -22,7 +22,7 @@ class ReservationsController {
 
 
     public function show($data = null){
-        //$data['list'] = $this->res->get();
+        $data['reservations'] = $this->reservations->get();
         $this->view->show("reservations/show", $data);
     }
 
@@ -68,6 +68,29 @@ class ReservationsController {
 
         $this->show($data);
     }
+
+
+    public function delete(){
+
+        if(Security::getType()==1){
+            $result = $this->reservations->delete();
+
+            if($result>0){
+                $data["correcto"] = "Reserva eliminada correctamente";
+            }else{
+                $data["error"] = "Ha ocurrido un error al eliminar la reserva";
+            }
+    
+            $this->show($data);
+    
+        }else{
+            
+            $this->error->show404();
+        }
+
+
+
+        }
 
 
 

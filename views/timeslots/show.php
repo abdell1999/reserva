@@ -26,7 +26,7 @@ $editar = "edit";
 echo "<script type='text/javascript'>
 function confirmar(id)
 {
-    if(confirm('¿Estás segur@ de que quieres eliminar este recurso (ESTE PROCESO ES IRREVERSIBLE)?'))
+    if(confirm('¿Estás segur@ de que quieres eliminar este timeslot (ESTE PROCESO ES IRREVERSIBLE)?'))
     {
         window.location.href = 'index.php?controller=timeslots&action=delete&id='+id;
     }
