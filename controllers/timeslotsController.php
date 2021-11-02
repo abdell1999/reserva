@@ -77,6 +77,29 @@ class TimeslotsController {
     }
 
 
+    public function delete(){
+
+        if(Security::getType()==1){
+            $result = $this->timeslots->delete();
+
+            if($result>0){
+                $data["correcto"] = "Timeslot eliminado correctamente";
+            }else{
+                $data["error"] = "Ha ocurrido un error al eliminar el timeslot";
+            }
+    
+            $this->show($data);
+    
+        }else{
+            
+            $this->error->show404();
+        }
+
+
+
+        }
+
+
 
 
 

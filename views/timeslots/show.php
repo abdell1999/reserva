@@ -23,6 +23,18 @@ $crear = "create";
 $editar = "edit";
 
 
+echo "<script type='text/javascript'>
+function confirmar(id)
+{
+    if(confirm('¿Estás segur@ de que quieres eliminar este recurso (ESTE PROCESO ES IRREVERSIBLE)?'))
+    {
+        window.location.href = 'index.php?controller=timeslots&action=delete&id='+id;
+    }
+}
+</script>";
+
+
+
 echo "<main class='py-4'>";
 if(isset($data["error"])){
     
@@ -74,10 +86,10 @@ foreach ($timeslots as $timeslot) {
       echo $timeslot['endTime'];
       echo "</td>
       <td>
-      <a class='btn btn-warning' href='index.php?controller=$controller&action=$editar&id=$id'>Editar</a>
-      <a class='btn btn-danger' href='index.php?controller=$controller&action=$eliminar&id=$id'>Eliminar</a> 
+      <a class='btn btn-warning' href='index.php?controller=$controller&action=$editar&id=$id'>Editar</a>";
+      echo "<a class='btn btn-danger' href='#' onclick='confirmar($id)'>Eliminar</a>";
       
-      </td>
+      echo "</td>
 
     </tr>
     <?php } ?>

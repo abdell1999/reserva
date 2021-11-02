@@ -2,6 +2,7 @@
 
 include_once("db.php");
 include_once("security.php");
+include_once("reservations.php");
 
 class User
 {
@@ -132,6 +133,15 @@ class User
 
 
 
+
+    public function delete(){
+        $id = $_REQUEST['id'];
+        $reservations = new Reservation();
+        $reservations->deleteByUser($id);
+        $result = DB::dataManipulation("DELETE FROM users WHERE id = '$id'"); 
+        
+        return $result;
+    }
 
 
 

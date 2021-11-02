@@ -74,6 +74,16 @@ class Timeslots
     }
 
 
+    public function delete(){
+        $id = $_REQUEST['id'];
+        $reservations = new Reservation();
+        $reservations->deleteByTimeslot($id);
+        $result = DB::dataManipulation("DELETE FROM timeslots WHERE id = '$id'"); 
+        
+        return $result;
+    }
+
+
 
 
 }

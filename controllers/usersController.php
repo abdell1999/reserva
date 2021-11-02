@@ -122,4 +122,28 @@ class UsersController {
     }
 
 
+
+    public function delete(){
+
+        if(Security::getType()==1){
+            $result = $this->users->delete();
+
+            if($result>0){
+                $data["correcto"] = "Usuario eliminado correctamente";
+            }else{
+                $data["error"] = "Ha ocurrido un error al eliminar el usuario";
+            }
+    
+            $this->show($data);
+    
+        }else{
+            
+            $this->error->show404();
+        }
+
+
+
+        }
+
+
 }

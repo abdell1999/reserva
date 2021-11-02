@@ -74,6 +74,19 @@ class Reservation
 
 
 
+    public function deleteByUser(){
+        $idUser = $_REQUEST['id'];
+        $result = DB::dataManipulation("DELETE FROM reservations WHERE id_user = '$idUser'");
+        return $result;
+    }
+
+    public function deleteByTimeslot(){
+        $idTimeslot = $_REQUEST['id'];
+        $result = DB::dataManipulation("DELETE FROM reservations WHERE id_timeslot = '$idTimeslot'");
+        return $result;
+    }
+
+
 
 
 
